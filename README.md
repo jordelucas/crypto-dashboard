@@ -1,3 +1,5 @@
+![crypto-dashboard](./public/crypto-dashboard.png)
+
 ## Como executar
 
 Primeiro, execute o servidor de desenvolvimento:
