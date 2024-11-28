@@ -9,9 +9,9 @@ import {
 } from "../ui/select";
 
 const OPTIONS = [
-  { id: "seven-days", name: "7 dias" },
-  { id: "thirty-days", name: "30 dias" },
-  { id: "ninety-days", name: "90 dias" },
+  { id: "7", name: "7 dias" },
+  { id: "30", name: "30 dias" },
+  { id: "90", name: "90 dias" },
 ];
 
 export const PeriodFilter = () => {

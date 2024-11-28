@@ -14,14 +14,19 @@ const FormSchema = z.object({
   name: z.string().optional(),
 });
 
-export const Filters = () => {
+export type IFormData = z.infer<typeof FormSchema>;
+interface FiltersProps {
+  onSubmit: (data: IFormData) => void;
+}
+
+export const Filters = ({ onSubmit }: FiltersProps) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log("check data ===> ", data);
-  }
+  const handleSubmit = (data: IFormData) => {
+    onSubmit(data);
+  };
 
   return (
     <div className="flex flex-col space-y-8 rounded p-5 shadow-2xl first:mt-3 md:first:mt-0">
@@ -29,7 +34,7 @@ export const Filters = () => {
 
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={form.handleSubmit(handleSubmit)}
           className="grid grid-cols-12 gap-3"
         >
           <div className="col-span-3">
